@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\PagesController;
 
+use App\Http\Controllers\PagesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +14,7 @@ use App\Http\Controllers\PagesController;
 */
 
 Route::get('/', [PagesController::class, "index"]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
+@include('inc.navbar')
+<br>
+<br>    
 @section('content')
-    @include('inc.navbar')
-    fjsrogijsrijgiosrpofjsiogjspoi
+    <h1>App</h1>
 @endsection
