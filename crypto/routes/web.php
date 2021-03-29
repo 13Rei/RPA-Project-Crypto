@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ProfileEdit;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +19,6 @@ Route::get('/', [PagesController::class, "index"]);
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/edit/user', 'ProfileEdit@edit')->name('user.edit');
+Route::get('/edit/user', 'ProfileEdit@update')->name('user.update');
