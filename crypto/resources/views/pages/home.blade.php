@@ -16,8 +16,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Your account is verified
+                    
+                    @if (Auth::user()->email_verified_at)
+                        Your email is verified
+                    @else
+                        Check your email inbox to verify email
+                    @endif
                 </div>
             </div>
         </div>
