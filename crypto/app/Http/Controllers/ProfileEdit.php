@@ -24,7 +24,20 @@ class ProfileEdit extends Controller
         }
     }
 
-    public function update(){
-        
+    public function update(Request $data){
+        if (Auth::user()) {
+            $user = User::find(Auth::user()->id);
+        }
+
+        if ($user) {
+            if ($data['name']) {
+                $user->name = $data['name'];
+            }
+            $user->save();
+            return view('auth.success');
+        }
+        else {
+            return redirect()->back();
+        }
     }
 }

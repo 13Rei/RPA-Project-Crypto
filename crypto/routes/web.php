@@ -20,5 +20,5 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/edit/user', 'ProfileEdit@edit')->name('user.edit');
-Route::get('/edit/user', 'ProfileEdit@update')->name('user.update');
+Route::get('/profile/edit', 'ProfileEdit@edit')->name('user.edit');
+Route::patch('/profile/update', 'ProfileEdit@update')->name('user.update');
