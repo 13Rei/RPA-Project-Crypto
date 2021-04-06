@@ -38,6 +38,7 @@ class GoogleController extends Controller
                     'email' => $user->email,
                     'social_id'=> $user->id,
                     'social_type'=> 'google',
+                    'email_verified_at' => date('Y-m-d H:i:s'),
                     'password' => encrypt('my-google')
                 ]);
      
