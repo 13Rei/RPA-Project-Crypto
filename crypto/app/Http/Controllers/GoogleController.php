@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
 use Socialite;
 use Auth;
@@ -10,6 +12,8 @@ use App\User;
 
 class GoogleController extends Controller
 {
+    use VerifiesEmails;
+
     public function redirectToGoogle(){
         return Socialite::driver('google')->redirect();
     }
@@ -36,14 +40,17 @@ class GoogleController extends Controller
                 $newUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,
+                    'email_verified_at'=>Carbon::now(),
                     'social_id'=> $user->id,
                     'social_type'=> 'google',
-                    'email_verified_at' => date('Y-m-d H:i:s'),
+                    // 'email_verified_at' => date('Y-m-d H:i:s'),
                     'password' => encrypt('my-google')
                 ]);
-     
+
+                
                 Auth::login($newUser);
-      
+
+                $newUser->markEmailAsVerified();
                 return view('pages.index');
             }
      
@@ -51,4 +58,11 @@ class GoogleController extends Controller
             dd($e->getMessage());
         }
     }
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    //     $this->middleware('signed')->only('verify');
+    //     $this->middleware('throttle:6,1')->only('verify', 'resend');
+    // }
 }

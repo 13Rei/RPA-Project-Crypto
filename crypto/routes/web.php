@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileEdit;
 //use App\Http\Controllers\GoogleSocialiteController;
@@ -33,3 +34,8 @@ Route::get('callback/google', [GoogleController::class, 'handleCallback']);
 // Route::get('callback/google', function(){
 //     echo "Hello world";
 // });
+
+Route::get('/time', function(){
+    // echo Carbon::now();
+    echo date('Y-m-d H:i:s');
+});
