@@ -1,8 +1,9 @@
 <?php
 
-
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileEdit;
+//use App\Http\Controllers\GoogleSocialiteController;
+use App\Http\Controllers\GoogleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,16 @@ Route::get('/', [PagesController::class, "index"]);
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/index', function(){
+    return view('pages.index');
+});
 
 Route::get('/profile/edit', 'ProfileEdit@edit')->name('user.edit');
 Route::patch('/profile/update', 'ProfileEdit@update')->name('user.update');
+// Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle']);
+// Route::get('callback/google', ["GoogleSocialiteController@handleCallback"]);
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('callback/google', [GoogleController::class, 'handleCallback']);
+// Route::get('callback/google', function(){
+//     echo "Hello world";
+// });
