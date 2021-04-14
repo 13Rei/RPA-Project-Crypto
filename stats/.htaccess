@@ -1,0 +1,7 @@
+AuthName "crypto.hexte.eu statistics"
+AuthType Basic
+AuthUserFile /home/crypto/.stats-htpasswd
+require valid-user
+<Files .stats-htpasswd>
+deny from all
+</Files>
