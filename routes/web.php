@@ -39,3 +39,12 @@ Route::get('/time', function(){
     // echo Carbon::now();
     echo date('Y-m-d H:i:s');
 });
+
+Route::post('/insertCurrencies', function(){
+    $data=file_get_contents('../data.json');
+    $array_of_data = json_decode($data, true);
+    foreach ($array_of_data as $row) {
+        echo $row;
+        echo "<br>";
+    }
+});
