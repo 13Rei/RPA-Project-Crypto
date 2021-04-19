@@ -43,6 +43,27 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Default Currency') }}</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control form-select" aria-label="Default select example" name="currency" id="currency">
+                                    @foreach ($fiat as $val)
+                                        <option value="{{$val['id']}}"
+                                        @if ($val['id'] == $user['fiat_id'])
+                                            selected
+                                        @endif
+                                        >{{$val['name']}}</option>
+                                    @endforeach
+                                </select>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <button class="btn btn-success">
                                     {{__('Change Password')}}
