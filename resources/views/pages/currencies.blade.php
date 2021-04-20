@@ -16,7 +16,7 @@
                                 <li
                                     @foreach ($selected as $item)
                                         @if ($val['id'] == $item['currency_id'])
-                                            class="list-group-item d-flex justify-content-between align-items-center active"
+                                            class="list-group-item d-flex justify-content-between align-items-center list-group-item-info"
                                         @endif
                                     @endforeach
                                 class="list-group-item d-flex justify-content-between align-items-center">

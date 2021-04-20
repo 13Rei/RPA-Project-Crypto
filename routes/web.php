@@ -37,6 +37,8 @@ Route::get('/profile/deletecurrencies', 'ProfileEdit@deleteAllByUser')->name('us
 //[CURRENCIES]
 Route::get('/currencies', [PagesController::class, 'getAllCurrencies']);
 Route::get('/currency/{id}', [CurrencyController::class, 'getCurrency']);
+Route::get('/currency/{id}/follow', [CurrencyController::class, 'followCurrency']);
+Route::get('/currency/{id}/unfollow', [CurrencyController::class, 'unfollowCurrency']);
 
 //[GOOGLE]
 // Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle']);
