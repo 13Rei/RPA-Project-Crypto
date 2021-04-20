@@ -47,7 +47,7 @@
                             <label for="currencies" class="col-md-4 col-form-label text-md-right">{{ __('Default Currency') }}</label>
 
                             <div class="col-md-6">
-                                <select class="form-control form-select" aria-label="Default select example" name="currency" id="currency">
+                                <select class="form-control form-select" size="2" aria-label="Default select example" name="currency" id="currency">
                                     @foreach ($fiat as $val)
                                         <option value="{{$val['id']}}"
                                         @if ($val['id'] == $user['fiat_id'])

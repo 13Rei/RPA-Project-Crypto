@@ -21,6 +21,7 @@ Route::get('/', [PagesController::class, "index"]);
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'HomeController@index')->name('home');
 Route::get('/index', function(){
     return view('pages.index');
 });
