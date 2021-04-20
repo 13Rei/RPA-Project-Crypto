@@ -62,18 +62,18 @@
                         <div class="form-group row">
                             <label for="cryptocurrencies" class="col-md-4 col-form-label text-md-right">{{ __('Crypto Currencies') }}</label>
                             <div class="col-md-6">
-                                <select class="form-control form-select" multiple size="17" aria-label="Default select example" name="cryptocurrencies[]" id="cryptocurrencies">
+                                <select class="form-control form-select" multiple size="{{count($selectedCrypto)}}" aria-label="Default select example" name="cryptocurrencies[]" id="cryptocurrencies">
                                     @foreach ($crypto as $val)
-                                        <option value="{{$val['id']}}"
                                         @foreach ($selectedCrypto as $item)
                                             @if ($val['id'] == $item['currency_id'])
+                                                <option value="{{$val['id']}}"
                                                 selected
+                                                {{-- @if (in_array($val['name'], $selectedCrypto))
+                                                selected
+                                                @endif --}}
+                                                >{{$val['name']}}</option>
                                             @endif
                                         @endforeach
-                                        {{-- @if (in_array($val['name'], $selectedCrypto))
-                                            selected
-                                        @endif --}}
-                                        >{{$val['name']}}</option>
                                     @endforeach
                                 </select>
                             </div>

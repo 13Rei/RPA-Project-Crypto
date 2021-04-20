@@ -49,19 +49,21 @@ class ProfileEdit extends Controller
                 $oldmail = $user->email;
                 $user->email = $data['email'];
                 $user->fiat_id = $data['currency'];
-                foreach ($data['cryptocurrencies'] as $value) {
-                    Users_Currencies::create([
-                        'user_id'=>Auth::user()->id,
-                        'currency_id'=>$value
-                    ]);
-                }
-                if ($data['email'] != $oldmail) {
-                    $user->email_verified_at = null;
-                    $user->sendEmailVerificationNotification();
+                if ($data['cryptocurrencies'] != 0) {
+                    foreach ($data['cryptocurrencies'] as $value) {
+                        Users_Currencies::create([
+                            'user_id'=>Auth::user()->id,
+                            'currency_id'=>$value
+                        ]);
+                    }
+                    if ($data['email'] != $oldmail) {
+                        $user->email_verified_at = null;
+                        $user->sendEmailVerificationNotification();
+                    }
                 }
             }
             $user->save();
-            return redirect('/home');
+            return redirect('/profile/edit');
         }
         else {
             return redirect()->back();
