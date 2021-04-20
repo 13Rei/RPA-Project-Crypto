@@ -27,6 +27,7 @@ Route::get('/index', function(){
 
 Route::get('/profile/edit', 'ProfileEdit@edit')->name('user.edit');
 Route::patch('/profile/update', 'ProfileEdit@update')->name('user.update');
+Route::get('/profile/deletecurrencies', 'ProfileEdit@deleteAllByUser')->name('user.deletecurrencies');
 // Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle']);
 // Route::get('callback/google', ["GoogleSocialiteController@handleCallback"]);
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
