@@ -47,7 +47,7 @@
                             <label for="currencies" class="col-md-4 col-form-label text-md-right">{{ __('Default Currency') }}</label>
 
                             <div class="col-md-6">
-                                <select class="form-control form-select" size="2" aria-label="Default select example" name="currency" id="currency">
+                                <select class="form-control form-select" aria-label="Default select example" name="currency" id="currency">
                                     @foreach ($fiat as $val)
                                         <option value="{{$val['id']}}"
                                         @if ($val['id'] == $user['fiat_id'])
@@ -112,9 +112,9 @@
     </div>
 </div>
 <script>
-    $("select").mousedown(function(e){
+    $('select[id^="cryptocurrencies"]').mousedown(function(e){
         e.preventDefault();
-    
+        
         var select = this;
         var scroll = select .scrollTop;
     
@@ -123,7 +123,7 @@
         setTimeout(function(){select.scrollTop = scroll;}, 0);
     
         $(select ).focus();
+
     }).mousemove(function(e){e.preventDefault()});
-    
     </script>
 @endsection
