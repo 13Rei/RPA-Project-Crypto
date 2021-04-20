@@ -9,7 +9,7 @@ use App\Users_Currencies;
 
 class CurrencyController extends Controller
 {
-    public function _construct(){
+    public function __construct(){
         $this->middleware('auth');
     }
 

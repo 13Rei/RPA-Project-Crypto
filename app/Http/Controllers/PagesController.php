@@ -20,13 +20,11 @@ class PagesController extends Controller
         }
         else {
             $user_id = null;
+            $selectedCrypto = null;
         }
         $crypto = Currency::all();
-        if ($user_id && !$selectedCrypto->isEmpty()) {
+        if ($selectedCrypto) {
             return view('pages.currencies')->with(['data'=> $crypto, 'selected'=> $selectedCrypto]);
-        }
-        elseif ($user_id && $selectedCrypto->isEmpty()) {
-            return view('pages.currencies')->with(['data'=> $crypto, 'selected'=> false]);
         }
         else {
             return view('pages.currencies')->with(['data'=> $crypto, 'selected'=> false]);
