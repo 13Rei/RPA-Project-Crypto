@@ -13,6 +13,9 @@
                 <li class="nav-item">
                     <a href="/home" class="nav-link">Home</a>
                 </li>
+                <li class="nav-item">
+                    <a href="/currencies" class="nav-link">Crypto Currencies</a>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
